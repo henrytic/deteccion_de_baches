@@ -1,0 +1,20 @@
+# Archivo de requerimientos para instalar dependencias de Python con pip:
+# pip install -r requirements.txt
+
+# URL adicional para la instalación de PyTorch con soporte para CUDA 12.8
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# Dependencias de PyTorch
+torch
+torchvision
+torchaudio
+
+# Otras dependencias
+numpy
+pandas
+matplotlib
+seaborn
+opencv-python-headless
+Pillow
+PyYAML
+ultralytics
