@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/sistema_de_deteccion_de_baches.iml" filepath="$PROJECT_DIR$/.idea/sistema_de_deteccion_de_baches.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/deteccion_de_baches.iml" filepath="$PROJECT_DIR$/.idea/deteccion_de_baches.iml" />
     </modules>
   </component>
 </project>

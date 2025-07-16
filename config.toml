@@ -1,0 +1,25 @@
+# Ya no se usa la sección [global] para esta configuración
+
+[client]
+# Reemplaza a "developmentMode".
+# false es el comportamiento por defecto, igual que tu configuración original.
+showErrorDetails = false
+showWarningOnDirectExecution = false
+
+[server]
+runOnSave = true
+port = 8501
+enableCORS = false
+enableXsrfProtection = false
+maxUploadSize = 500
+
+[browser]
+serverAddress = "localhost"
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#FF6B35"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#262730"
+font = "sans serif"
