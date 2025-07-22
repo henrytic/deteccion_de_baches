@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f4f8;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: white;
+            border-bottom: 1px solid #dee2e6;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .btn-sm {
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>🛠️ Panel de Administrador</h1>
+    <div class="header-right">
+        <span>👤 {{ current_user.nombre }}</span>
+        <a href="/" class="btn btn-sm btn-outline-secondary">Inicio</a>
+        <a href="/logout" class="btn btn-sm btn-outline-danger">Cerrar sesión</a>
+    </div>
+</header>
+
+<!-- Contenido -->
+<main>
+    <h2>📂 Archivos subidos por los usuarios</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Usuario</th>
+                    <th>Archivo</th>
+                    <th>Tipo</th>
+                    <th>Fecha/Hora</th>
+                    <th>Ver</th>
+                    <th>Descargar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for archivo in archivos %}
+                <tr>
+                    <td>{{ archivo.autor.nombre }}</td>
+                    <td>{{ archivo.nombre_archivo }}</td>
+                    <td class="text-capitalize">{{ archivo.tipo }}</td>
+                    <td>{{ archivo.fecha_hora.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td class="text-center">
+                        <a href="/{{ archivo.resultado_path }}" target="_blank" class="btn btn-sm btn-primary">
+                            Ver
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="/{{ archivo.resultado_path }}" download class="btn btn-sm btn-success">
+                            Descargar
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <form action="{{ url_for('delete_file', id=archivo.id) }}" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este archivo?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+</body>
+</html>
