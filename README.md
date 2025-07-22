@@ -73,20 +73,18 @@
 ## 📁 Estructura del Proyecto
 
 ```
-pothole-analyzer/
-├── 📁 core/                          # Módulos principales
-│   ├── 🐍 train_model.py            # Entrenamiento del modelo
-│   ├── 🐍 process_video.py          # Procesamiento de videos
-│   ├── 🐍 pothole_classifier.py     # Clasificador de severidad
-│   └── 🐍 integrated_processor.py   # Procesador integrado
-├── 📁 web/                          # Interfaz web
-│   ├── 🐍 web.py                    # Aplicación web principal
-│   ├── 📁 deteccion_baches_web      # Aplicación para para procesar y administrar videos
-│        ├── 🐍 app.py
-         ├── 🐍 config.py
-         ├── 🐍 models.py
-         ├── 🐍 processor.py
-         └── 🐍 routes.py.mp4
+pothole-analyzer/                        # Módulos principales
+├── 🐍 train_model.py            # Entrenamiento del modelo
+├── 🐍 process_video.py          # Procesamiento de videos
+├── 🐍 pothole_classifier.py     # Clasificador de severidad
+├── 🐍 integrated_processor.py   # Procesador integrado                         
+├── 🐍 web.py                    # Aplicación web principal
+├── 📁 deteccion_baches_web      # Aplicación para para procesar y administrar videos
+│    ├── 🐍 app.py
+│    ├── 🐍 config.py
+│    ├── 🐍 models.py
+│    ├── 🐍 processor.py
+│    └── 🐍 routes.py.mp4
 ├── 📁 models/                       # Modelos entrenados
 │   ├── 🤖 best.pt                  # Mejor modelo entrenado
 │   └── 🤖 yolo11m-seg.pt          # Modelo base
@@ -95,6 +93,9 @@ pothole-analyzer/
 │   ├── 📁 train/images/
 │   ├── 📁 valid/images/
 │   └── 📁 samples/                  # Videos de ejemplo
+├── 📁 Videos/
+|   ├── 🎬 sample_video.mp4
+|   ├── 🎬 video_comercio.mp4
 ├── 📁 resultados/                      # Resultados generados
 │   ├── 🎬 resultado.mp4
 │   └── 🎬 classified_video_comercio.mp4        # Iniciar aplicación web
@@ -465,18 +466,6 @@ python -m pytest tests/performance/
 python -m pytest --cov=core tests/
 ```
 
-### **✅ Validación de Resultados**
-```bash
-# Validar con dataset de referencia
-python scripts/validate_model.py \
-  --model models/best.pt \
-  --dataset data/validation/
-
-# Comparar con ground truth
-python scripts/compare_ground_truth.py \
-  --predictions output/results.json \
-  --ground_truth data/annotations.json
-```
 
 ## 🤝 Contribuir
 
@@ -510,7 +499,7 @@ python scripts/compare_ground_truth.py \
 ### **🐛 Reportar Bugs**
 
 Si encuentras un bug, por favor:
-1. 🔍 Verifica si ya existe un [issue](https://github.com/usuario/pothole-analyzer/issues)
+1. 🔍 Verifica si ya existe un [issue](https://github.com/henrytic/deteccion_de_baches.git/issues)
 2. 📝 Crea un nuevo issue con:
    - Descripción detallada del problema
    - Pasos para reproducir
@@ -520,12 +509,12 @@ Si encuentras un bug, por favor:
 ### **💡 Solicitar Funcionalidades**
 
 Para solicitar nuevas funcionalidades:
-1. 💭 Abre un [issue](https://github.com/usuario/pothole-analyzer/issues) con la etiqueta `enhancement`
+1. 💭 Abre un [issue](https://github.com/henrytic/deteccion_de_baches.git/issues) con la etiqueta `enhancement`
 2. 📋 Describe la funcionalidad deseada
 3. 🎯 Explica el caso de uso
 4. 💪 ¡Considera implementarla tú mismo!
 
-## 📊 Roadmap
+## 📊 implementaciones futuras
 
 ### **🔮 Versión 2.0 (Q2 2024)**
 - [ ] 🌐 API REST completa
@@ -562,35 +551,18 @@ Para solicitar nuevas funcionalidades:
 ## 🏆 Reconocimientos
 
 ### **👥 Contribuidores Principales**
-- 👨‍💻 **[Tu Nombre]** - Desarrollo principal
-- 👩‍🔬 **[Colaborador 1]** - Algoritmos de IA
-- 👨‍🎨 **[Colaborador 2]** - Diseño de UI/UX
-- 👩‍💼 **[Colaborador 3]** - Gestión de proyecto
+- 👨‍💻 **[Henry Choque]** - Desarrollo principal
+- 👩‍🔬 **[Frank Zapata]** - Algoritmos de IA
+- 👨‍🎨 **[Oscar Daniel]** - Diseño de UI/UX
 
 ### **🙏 Agradecimientos**
 - 🤖 **Ultralytics** por YOLOv11
 - 🌐 **Streamlit** por el framework web
 - 📊 **Plotly** por las visualizaciones
-- 🎓 **Universidad XYZ** por el dataset inicial
-- 🏛️ **Municipio ABC** por las pruebas piloto
+- 🎓 **Farzad Nekouei de kaggle** por el dataset inicial
 
-### **🏅 Premios y Reconocimientos**
-- 🥇 **Mejor Proyecto de IA 2024** - Conferencia TechIA
-- 🏆 **Premio Innovación Municipal** - Smart Cities Summit
-- ⭐ **Top 10 Proyectos Open Source** - GitHub Archive
 
-## 📊 Estadísticas del Proyecto
 
-![GitHub stars](https://img.shields.io/github/stars/usuario/pothole-analyzer?style=social)
-![GitHub forks](https://img.shields.io/github/forks/usuario/pothole-analyzer?style=social)
-![GitHub issues](https://img.shields.io/github/issues/usuario/pothole-analyzer)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/usuario/pothole-analyzer)
-
-### **📈 Métricas de Uso**
-- 📥 **Descargas**: 10,000+ este mes
-- 👥 **Usuarios activos**: 500+ diario
-- 🌍 **Países**: 45+ usando el sistema
-- 🏢 **Organizaciones**: 120+ implementando
 
 ## 📄 Licencia
 
@@ -629,8 +601,7 @@ copies or substantial portions of the Software.
   <strong>🚀 Desarrollado con ❤️ para hacer las carreteras más seguras</strong>
 </p>
 <p>
-  📧 <a href="mailto:contact@pothole-analyzer.com">contact@pothole-analyzer.com</a> |
-  🌐 <a href="https://pothole-analyzer.com">pothole-analyzer.com</a> |
-  🐦 <a href="https://twitter.com/PotholeAnalyzer">@PotholeAnalyzer</a>
+  📧 <a href="mailto:contact@pothole-analyzer.com">hchoque@est.unap.edu.pe</a> |
+  
 </p>
 </div>
